@@ -1,0 +1,166 @@
+
+/* Criando variáveis no css  */
+:root {
+    --cor-destaque: #5333ed;
+}
+
+
+
+body {
+    margin: 0;
+    background-color: #f1f1f1;
+}
+
+/* definindo fontes */
+@font-face {
+    font-family: "negrito";
+    src: url(../fonts/KumbhSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: "padrao";
+    src: url(../fonts/KumbhSans-Regular.ttf);
+}
+
+#marca {
+    background-color: white;
+    padding: 10px;
+}
+
+/* todos s filhos dessa div centralizado */
+#marca * {
+    vertical-align: middle;
+}
+
+#marca span {
+    font-family: "negrito";
+    font-size: 150%;
+    /*para ultilizar variáveis*/
+    color: var(--cor-destaque);
+}
+
+#marca img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+/*------ header ------- */
+
+#header {
+    /*para criar um degradê*/
+                                      /* inicia na esquerda, define a cor inicial, cor final*/
+    background-image: linear-gradient(to right, #4d13d1 , #59abe3);
+    /*sentido horário / inicio top  */
+    padding: 50px 10px 30px 30px;
+    color: white;
+}
+
+#boasVindas {
+    font-family: "negrito";
+    font-size: 500%;
+    /*Para não permitir nehuma div ao lado dele */
+    display: block;
+}
+
+#slogan{
+    font-family: "padrao";
+    font-size: 200%;
+}
+
+
+/*--------Container--------*/
+#container {
+    padding: 10px;
+    /* para permirtir divs uma do lado da outra */
+    display: flex;
+    margin-top: 20px;
+}
+
+/*Esquerda*/
+#esquerda{
+    /*essa div vai ocupar 60% da tela, da esquerda para a direita*/
+    width: 60%;
+    padding: 10px;
+
+}
+
+#lancamentos {
+    font-family: "negrito";
+    font-size: 200%;
+}
+
+#novoLancamento {
+    /*para fazer  com que a div flutue para a direita da div id #esquerda*/
+    float:right;
+    border: none;
+    background-color: var(--cor-destaque);
+    color: white;
+    font-size: 150%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#areaLancamentos {
+    margin-top: 25px;
+}
+
+.blocoLancamento{
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.blocoLancamento img {
+    width: 50px;
+}
+
+.descricaoLancamento {
+    /*todo conteúdo da classe para a direita*/
+    float: right;
+}
+
+.descricaoLancamento span {
+    /*cada um em uma linha */
+    display: block;
+    /*alinhando o texto a direita*/
+    text-align: right ;
+    font-family: "padrao";
+}
+
+.valor {
+                            /*aqui informamos que mesmo que ele já esteja sendo estilizado, essa nova mudança é importante*/
+    font-family: "negrito" !important;
+    font-size: 200%;
+}
+
+.gasto {
+    color: red;
+}
+
+.entrada {
+    color: #22a7f0;
+}
+
+#direita {
+    background-color: white;
+    border-radius: 20px;
+    width: 40%;
+    padding: 10px;
+    text-align: right;
+    font-family: "negrito";
+}
+
+#labelRenda{
+    font-size: 250%;
+    display: block;
+}
+
+#direita img{
+    width: 30px;
+}
+
+#renda {
+    color: var(--cor-destaque);
+    font-size: 450%;
+}
