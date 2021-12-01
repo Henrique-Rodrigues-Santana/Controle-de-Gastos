@@ -1,53 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/estilo.css">
+    <link rel="stylesheet" href="styles/estilos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
     <title>Controle de Gastos</title>
 </head>
+
 <body>
+
     <div id="marca">
-        <img src="img/Logo.png" alt="Controle de Gastos">
-        <span>Controle de Gastos</span>
+        <img src="img/LogoJulius.png" alt="Julius">
+        <span>Controle de Gasto</span>
     </div>
+
     <div id="header">
-        <span id="boasVindas">Olá Mundo</span>
-        <span id="slogan">Vamos otimizar seus Gastos!</span>
+        <span id="boasVindas">Olá, Pessoa!</span>
+        <span id="slogan">Vamos colocar sua vida financeira no Eixo?</span>
     </div>
 
     <div id="container">
+
         <div id="esquerda">
-            <span id="lancamentos">Nenhum Lançamento</span>
-            <button id="novoLancamento" onclick="auternarFormulario()">
-                Novo Lançamento
+            <span id="lancamentos">Nenhum lançamento cadastrado</span>
+            <button id="novoLancamento" onclick="alternarFormulario()">
+                Novo lançamento
             </button>
+            <div id="novoLancamentoMobile">
+                <button onclick="alternarFormulario()">
+                    +
+                </button>
+            </div>
+
             <div id="formularioLancamento">
-                <form>
+                <form onsubmit="lancar(event)">
+                    <div id="botaoTipoLancamento">
+                        <input type="radio" name="tipoLancamento" id="entrada" value="entrada">
+                        <label for="entrada" class="entrada">Entrada</label>
+                        <input type="radio" name="tipoLancamento" id="gasto" checked  value="gasto">
+                        <label for="gasto" class="gasto">Gasto</label>
+                    </div>
                     <label for="valor">Valor:</label>
-                    <input type="number" name="valor" id="valor">
+                    <input type="number" step="0.01" min="0" name="valor" id="valor" required>
                     <label for="descricao">Descrição:</label>
-                    <input type="text" name="descricao" id="descricao">
-                    <label for="data">Data do Lançamento:</label>
-                    <input type="date" name="dataLancamento" id="dataLancamento">
+                    <input type="text" name="descricao" id="descricao" required>
+                    <label for="dataLancamento">Data do lançamento:</label>
+                    <input type="date" name="dataLancamento" id="dataLancamento" required>
                     <button id="botaoLancar">Lançar</button>
                 </form>
             </div>
+
             <div id="areaLancamentos">
-                
 
             </div>
-            
         </div>
-        
+
         <div id="direita">
-            <span id="labelRenda"> Dinheiro Mensal</span>
-            <img src="img/editar.png" alt="Editar valor da Renda">
-            <span id="renda">R$0</span>
+            <span id="labelRenda">Dinheiro em caixa</span>
+            <span id="renda">R$ 0</span>
+
+            <canvas id="graficoLancamentos"></canvas>
         </div>
     </div>
-    
+
     <script src="index.js"></script>
 </body>
+
 </html>
